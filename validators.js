@@ -35,11 +35,11 @@ const validateMovie = (req, res, next) => {
 
 const { body, validationResult } = require('express-validator');
 const validateUser = [
-  body("firstname").isLength({ min: 1, max: 255 }),
-  body("lastname").isLength({ min: 1, max: 255 }),
-  body("email").isEmail().isLength({ min: 1, max: 255 }),
-  body("city").isLength({ min: 1, max: 255 }),
-  body("language").isLength({ min: 1, max: 255 }),
+  body("firstname").notEmpty().isLength({ max: 255 }),
+  body("lastname").notEmpty().isLength({ max: 255 }),
+  body("email").notEmpty().isEmail().isLength({ max: 255 }),
+  body("city").notEmpty().isLength({ max: 255 }),
+  body("language").notEmpty().isLength({ max: 255 }),
   (req, res, next) => {
     const errors = validationResult(req);
 
