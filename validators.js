@@ -34,6 +34,7 @@ const validateMovie = (req, res, next) => {
   };
 
 const { body, validationResult } = require('express-validator');
+
 const validateUser = [
   body("firstname").notEmpty().isLength({ max: 255 }),
   body("lastname").notEmpty().isLength({ max: 255 }),
